@@ -64,10 +64,9 @@ const contactForm = document.getElementById('contactForm');
 contactForm.addEventListener('submit', (e) => {
     e.preventDefault();
     
-    // Get form values
+    // Get form values (NO EMAIL)
     const name = document.getElementById('name').value;
     const phone = document.getElementById('phone').value;
-    const email = document.getElementById('email').value;
     const plotsize = document.getElementById('plotsize').value;
     const message = document.getElementById('message').value;
     
@@ -81,7 +80,6 @@ contactForm.addEventListener('submit', (e) => {
 
 Name: ${name}
 Phone: ${phone}
-${email ? `Email: ${email}` : ''}
 Interested in: ${plotSizeText}
 ${message ? `Message: ${message}` : ''}`;
     
@@ -96,35 +94,9 @@ ${message ? `Message: ${message}` : ''}`;
     
     // Reset form
     contactForm.reset();
+
     
-    // Alternative: You can integrate with services like:
-    // - EmailJS (https://www.emailjs.com/)
-    // - Formspree (https://formspree.io/)
-    // - Web3Forms (https://web3forms.com/)
-    
-    // Example with Web3Forms (free):
-    /*
-    const formData = new FormData(contactForm);
-    formData.append("access_key", "YOUR_ACCESS_KEY_HERE");
-    
-    fetch("https://api.web3forms.com/submit", {
-        method: "POST",
-        body: formData
-    })
-    .then(response => response.json())
-    .then(data => {
-        if (data.success) {
-            alert("Form submitted successfully! We'll contact you soon.");
-            contactForm.reset();
-        }
-    });
-    */
 });
-
-// ===========================
-// SMOOTH SCROLLING
-// ===========================
-
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
