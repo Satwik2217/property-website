@@ -56,35 +56,6 @@ window.addEventListener('scroll', () => {
 });
 
 // ===========================
-// PROPERTY FILTERING
-// ===========================
-
-const filterButtons = document.querySelectorAll('.filter-btn');
-const propertyCards = document.querySelectorAll('.property-card');
-
-filterButtons.forEach(button => {
-    button.addEventListener('click', () => {
-        // Remove active class from all buttons
-        filterButtons.forEach(btn => btn.classList.remove('active'));
-        // Add active class to clicked button
-        button.classList.add('active');
-        
-        const filterValue = button.getAttribute('data-filter');
-        
-        propertyCards.forEach(card => {
-            const category = card.getAttribute('data-category');
-            
-            if (filterValue === 'all' || category === filterValue) {
-                card.style.display = 'block';
-                card.style.animation = 'fadeIn 0.5s ease';
-            } else {
-                card.style.display = 'none';
-            }
-        });
-    });
-});
-
-// ===========================
 // CONTACT FORM
 // ===========================
 
@@ -97,17 +68,36 @@ contactForm.addEventListener('submit', (e) => {
     const name = document.getElementById('name').value;
     const phone = document.getElementById('phone').value;
     const email = document.getElementById('email').value;
-    const interest = document.getElementById('interest').value;
+    const plotsize = document.getElementById('plotsize').value;
     const message = document.getElementById('message').value;
     
-    // In a real application, you would send this data to a server
-    // For demo purposes, we'll just show an alert
-    alert(`Thank you, ${name}! We have received your enquiry and will contact you soon on ${phone}.`);
+    // Create WhatsApp message
+    const plotSizeText = plotsize === 'small' ? 'Small Plot (1000-1200 Sq.Ft.)' :
+                        plotsize === 'medium' ? 'Medium Plot (1500-1800 Sq.Ft.)' :
+                        plotsize === 'large' ? 'Large Plot (2000+ Sq.Ft.)' :
+                        'Any Available';
+    
+    const whatsappMessage = `Hi! I'm interested in JD Green City.
+
+Name: ${name}
+Phone: ${phone}
+${email ? `Email: ${email}` : ''}
+Interested in: ${plotSizeText}
+${message ? `Message: ${message}` : ''}`;
+    
+    const encodedMessage = encodeURIComponent(whatsappMessage);
+    const whatsappUrl = `https://wa.me/918887791232?text=${encodedMessage}`;
+    
+    // Open WhatsApp in new tab
+    window.open(whatsappUrl, '_blank');
+    
+    // Show success message
+    alert(`Thank you, ${name}! We're redirecting you to WhatsApp to confirm your enquiry.`);
     
     // Reset form
     contactForm.reset();
     
-    // You can integrate with services like:
+    // Alternative: You can integrate with services like:
     // - EmailJS (https://www.emailjs.com/)
     // - Formspree (https://formspree.io/)
     // - Web3Forms (https://web3forms.com/)
@@ -124,7 +114,7 @@ contactForm.addEventListener('submit', (e) => {
     .then(response => response.json())
     .then(data => {
         if (data.success) {
-            alert("Form submitted successfully!");
+            alert("Form submitted successfully! We'll contact you soon.");
             contactForm.reset();
         }
     });
@@ -166,8 +156,8 @@ const observer = new IntersectionObserver((entries) => {
     });
 }, observerOptions);
 
-// Observe all property cards and gallery items
-document.querySelectorAll('.property-card, .gallery-item').forEach(el => {
+// Observe elements for scroll animation
+document.querySelectorAll('.plot-card, .feature-box, .gallery-item').forEach(el => {
     el.style.opacity = '0';
     el.style.transform = 'translateY(30px)';
     el.style.transition = 'all 0.6s ease';
@@ -194,30 +184,63 @@ window.addEventListener('scroll', () => {
 });
 
 // ===========================
-// GALLERY MODAL (Optional Enhancement)
+// FORM INPUT ENHANCEMENTS
 // ===========================
 
-// You can add a lightbox/modal for gallery images
-// For now, gallery items are just hoverable
+// Add placeholder attribute for label animation to work
+const formInputs = document.querySelectorAll('.form-group input:not([type="tel"]), .form-group textarea');
+formInputs.forEach(input => {
+    input.setAttribute('placeholder', ' ');
+});
+
+// Phone number validation
+const phoneInput = document.getElementById('phone');
+phoneInput.addEventListener('input', (e) => {
+    // Remove non-numeric characters
+    e.target.value = e.target.value.replace(/[^0-9]/g, '');
+    
+    // Limit to 10 digits
+    if (e.target.value.length > 10) {
+        e.target.value = e.target.value.slice(0, 10);
+    }
+});
 
 // ===========================
-// LOADING ANIMATIONS
+// QUICK CALL TO ACTION TRACKING
+// ===========================
+
+// Track call button clicks (can be used for analytics)
+document.querySelectorAll('a[href^="tel:"]').forEach(link => {
+    link.addEventListener('click', () => {
+        console.log('Call button clicked:', link.href);
+        // You can add Google Analytics or other tracking here
+    });
+});
+
+// Track WhatsApp button clicks
+document.querySelectorAll('a[href*="wa.me"]').forEach(link => {
+    link.addEventListener('click', () => {
+        console.log('WhatsApp button clicked:', link.href);
+        // You can add Google Analytics or other tracking here
+    });
+});
+
+// ===========================
+// PAGE LOAD ANIMATION
 // ===========================
 
 window.addEventListener('load', () => {
     document.body.style.opacity = '1';
+    console.log('JD Green City website loaded successfully! 🏡');
 });
 
 // ===========================
-// FORM INPUT ANIMATIONS
+// PRINT VISITOR LOCATION INFO
 // ===========================
 
-// Handle placeholder labels for better UX
-const formInputs = document.querySelectorAll('.form-group input, .form-group textarea');
-
-formInputs.forEach(input => {
-    // Add placeholder attribute for label animation to work
-    input.setAttribute('placeholder', ' ');
-});
-
-console.log('Premium Properties Website Loaded Successfully! 🏠');
+// Get visitor's approximate location (requires HTTPS in production)
+if ("geolocation" in navigator) {
+    // This is just for demo - in production, you might use this
+    // to show distance from the plot or nearest landmark
+    console.log('Geolocation available');
+}
