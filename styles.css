@@ -96,6 +96,32 @@ a {
     margin-top: -5px;
 }
 
+.nav-brand {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.company-logo {
+    height: 50px;
+    width: auto;
+    object-fit: contain;
+}
+
+.brand-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.brand-text h1 {
+    margin: 0;
+    line-height: 1.2;
+}
+
+.brand-text .tagline {
+    margin: 0;
+}
+
 .nav-menu {
     display: flex;
     list-style: none;
@@ -1055,6 +1081,23 @@ section {
 }
 
 @media (max-width: 768px) {
+
+    .company-logo {
+        height: 40px;
+    }
+    
+    .nav-brand {
+        gap: 0.5rem;
+    }
+    
+    .brand-text h1 {
+        font-size: 1.2rem;
+    }
+    
+    .brand-text .tagline {
+        font-size: 0.65rem;
+    }
+
     :root {
         --spacing-lg: 3rem;
         --spacing-xl: 4rem;
