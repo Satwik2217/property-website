@@ -56,47 +56,9 @@ window.addEventListener('scroll', () => {
 });
 
 // ===========================
-// CONTACT FORM
+// SMOOTH SCROLL
 // ===========================
 
-const contactForm = document.getElementById('contactForm');
-
-contactForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-    
-    // Get form values (NO EMAIL)
-    const name = document.getElementById('name').value;
-    const phone = document.getElementById('phone').value;
-    const plotsize = document.getElementById('plotsize').value;
-    const message = document.getElementById('message').value;
-    
-    // Create WhatsApp message
-    const plotSizeText = plotsize === 'small' ? 'Small Plot (1000-1200 Sq.Ft.)' :
-                        plotsize === 'medium' ? 'Medium Plot (1500-1800 Sq.Ft.)' :
-                        plotsize === 'large' ? 'Large Plot (2000+ Sq.Ft.)' :
-                        'Any Available';
-    
-    const whatsappMessage = `Hi! I'm interested in JD Green City.
-
-Name: ${name}
-Phone: ${phone}
-Interested in: ${plotSizeText}
-${message ? `Message: ${message}` : ''}`;
-    
-    const encodedMessage = encodeURIComponent(whatsappMessage);
-    const whatsappUrl = `https://wa.me/918887791232?text=${encodedMessage}`;
-    
-    // Open WhatsApp in new tab
-    window.open(whatsappUrl, '_blank');
-    
-    // Show success message
-    alert(`Thank you, ${name}! We're redirecting you to WhatsApp to confirm your enquiry.`);
-    
-    // Reset form
-    contactForm.reset();
-
-    
-});
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
@@ -153,48 +115,6 @@ window.addEventListener('scroll', () => {
     }
     
     lastScroll = currentScroll;
-});
-
-// ===========================
-// FORM INPUT ENHANCEMENTS
-// ===========================
-
-// Add placeholder attribute for label animation to work
-const formInputs = document.querySelectorAll('.form-group input:not([type="tel"]), .form-group textarea');
-formInputs.forEach(input => {
-    input.setAttribute('placeholder', ' ');
-});
-
-// Phone number validation
-const phoneInput = document.getElementById('phone');
-phoneInput.addEventListener('input', (e) => {
-    // Remove non-numeric characters
-    e.target.value = e.target.value.replace(/[^0-9]/g, '');
-    
-    // Limit to 10 digits
-    if (e.target.value.length > 10) {
-        e.target.value = e.target.value.slice(0, 10);
-    }
-});
-
-// ===========================
-// QUICK CALL TO ACTION TRACKING
-// ===========================
-
-// Track call button clicks (can be used for analytics)
-document.querySelectorAll('a[href^="tel:"]').forEach(link => {
-    link.addEventListener('click', () => {
-        console.log('Call button clicked:', link.href);
-        // You can add Google Analytics or other tracking here
-    });
-});
-
-// Track WhatsApp button clicks
-document.querySelectorAll('a[href*="wa.me"]').forEach(link => {
-    link.addEventListener('click', () => {
-        console.log('WhatsApp button clicked:', link.href);
-        // You can add Google Analytics or other tracking here
-    });
 });
 
 // ===========================

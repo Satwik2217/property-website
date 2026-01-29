@@ -718,174 +718,136 @@ section {
 }
 
 /* ===========================
-   CONTACT SECTION
+   LOCATION SECTION (Replaces Contact)
    =========================== */
 
 .contact {
     background: var(--white);
 }
 
-.contact-content {
+.location-content {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: var(--spacing-lg);
 }
 
-.contact-info h3 {
+.location-info h3 {
     font-family: var(--font-display);
     font-size: 2rem;
     color: var(--primary);
     margin-bottom: var(--spacing-sm);
 }
 
-.contact-intro {
+.location-intro {
     color: var(--text-light);
     margin-bottom: var(--spacing-md);
 }
 
-.contact-details {
+.location-details {
     display: grid;
     gap: var(--spacing-md);
     margin-bottom: var(--spacing-md);
 }
 
-.contact-item {
+.location-item {
     display: flex;
     gap: var(--spacing-sm);
     align-items: start;
+    padding: var(--spacing-md);
+    background: var(--background);
+    border-radius: 10px;
+    border-left: 4px solid var(--accent);
 }
 
-.contact-icon {
+.location-icon {
     font-size: 1.5rem;
     flex-shrink: 0;
 }
 
-.contact-item h4 {
+.location-item h4 {
     font-weight: 600;
     color: var(--primary);
+    margin-bottom: 0.5rem;
+}
+
+.location-item p {
+    color: var(--text-light);
+    font-size: 0.95rem;
     margin-bottom: 0.25rem;
 }
 
-.contact-item p {
-    color: var(--text-light);
-    font-size: 0.95rem;
-}
-
-.contact-item a {
-    color: var(--primary);
-    font-weight: 600;
-}
-
-.contact-item a:hover {
-    color: var(--accent);
-}
-
-.contact-item small {
-    display: block;
-    font-size: 0.85rem;
-    color: var(--text-light);
-    margin-top: 0.25rem;
-}
-
-.quick-actions {
-    display: flex;
-    gap: var(--spacing-sm);
-    flex-wrap: wrap;
-}
-
-.action-btn {
-    padding: 1rem 2rem;
-    background: var(--primary);
+.visit-note {
+    background: var(--accent);
     color: var(--white);
-    border-radius: 50px;
-    font-weight: 600;
-    transition: all 0.3s ease;
-    flex: 1;
-    text-align: center;
-}
-
-.action-btn:hover {
-    background: var(--primary-light);
-    transform: translateY(-2px);
-}
-
-.action-btn.whatsapp {
-    background: #25D366;
-}
-
-.action-btn.whatsapp:hover {
-    background: #20BA5A;
-}
-
-.contact-form-wrapper {
-    background: var(--background);
     padding: var(--spacing-md);
-    border-radius: 15px;
+    border-radius: 10px;
+    margin-top: var(--spacing-md);
 }
 
-.contact-form-wrapper h3 {
+.visit-note p {
+    margin: 0;
+}
+
+.map-wrapper {
+    position: sticky;
+    top: 100px;
+}
+
+.map-wrapper h3 {
     color: var(--primary);
     margin-bottom: var(--spacing-md);
+    font-size: 1.5rem;
 }
 
-.contact-form {
-    display: grid;
-    gap: var(--spacing-md);
-}
-
-.form-group {
-    position: relative;
-}
-
-.form-group input,
-.form-group textarea,
-.form-group select {
-    width: 100%;
-    padding: 1rem;
-    border: 2px solid var(--border);
-    border-radius: 5px;
-    font-family: var(--font-body);
-    font-size: 1rem;
-    transition: border-color 0.3s ease;
-}
-
-.form-group input:focus,
-.form-group textarea:focus,
-.form-group select:focus {
-    outline: none;
-    border-color: var(--primary);
-}
-
-.form-group label {
-    position: absolute;
-    top: 1rem;
-    left: 1rem;
-    color: var(--text-light);
-    transition: all 0.3s ease;
-    pointer-events: none;
-}
-
-.form-group input:focus + label,
-.form-group textarea:focus + label,
-.form-group input:not(:placeholder-shown) + label,
-.form-group textarea:not(:placeholder-shown) + label {
-    top: -0.5rem;
-    left: 0.75rem;
-    font-size: 0.75rem;
+.map-placeholder {
     background: var(--background);
-    padding: 0 0.5rem;
+    border-radius: 10px;
+    padding: var(--spacing-lg);
+    text-align: center;
+    margin-bottom: var(--spacing-md);
+    min-height: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 2px dashed var(--border);
+}
+
+.map-icon {
+    font-size: 4rem;
+    margin-bottom: var(--spacing-sm);
+}
+
+.map-placeholder p {
+    color: var(--text-light);
+    margin-bottom: 0.5rem;
+}
+
+.map-directions {
+    font-weight: 600;
     color: var(--primary);
 }
 
-.btn-full {
-    width: 100%;
+.directions-info {
+    background: var(--primary);
+    color: var(--white);
+    padding: var(--spacing-md);
+    border-radius: 10px;
 }
 
-.form-note {
-    text-align: center;
-    font-size: 0.85rem;
-    color: var(--text-light);
-    margin-top: -var(--spacing-sm);
+.directions-info h4 {
+    margin-bottom: var(--spacing-sm);
+    font-size: 1.1rem;
+}
+
+.directions-info ul {
+    list-style: none;
+    padding: 0;
+}
+
+.directions-info li {
+    padding: 0.5rem 0;
+    opacity: 0.9;
 }
 
 /* ===========================
@@ -946,24 +908,6 @@ section {
     color: var(--accent);
 }
 
-.footer-social {
-    margin-top: var(--spacing-sm);
-}
-
-.social-link {
-    display: inline-block;
-    padding: 0.5rem 1.5rem;
-    background: #25D366;
-    border-radius: 50px;
-    font-weight: 600;
-    transition: all 0.3s ease;
-}
-
-.social-link:hover {
-    background: #20BA5A;
-    transform: scale(1.05);
-}
-
 .footer-bottom {
     text-align: center;
     padding-top: var(--spacing-md);
@@ -974,32 +918,6 @@ section {
 .footer-disclaimer {
     font-size: 0.85rem;
     margin-top: 0.5rem;
-}
-
-/* ===========================
-   WHATSAPP FLOAT BUTTON
-   =========================== */
-
-.whatsapp-float {
-    position: fixed;
-    bottom: 30px;
-    right: 30px;
-    width: 60px;
-    height: 60px;
-    background: #25D366;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.3);
-    z-index: 999;
-    transition: all 0.3s ease;
-    animation: pulse 2s infinite;
-}
-
-.whatsapp-float:hover {
-    transform: scale(1.1);
-    box-shadow: 0 8px 30px rgba(37, 211, 102, 0.4);
 }
 
 /* ===========================
@@ -1063,7 +981,7 @@ section {
     }
 
     .about-content,
-    .contact-content {
+    .location-content {
         grid-template-columns: 1fr;
     }
 
@@ -1077,6 +995,10 @@ section {
 
     .plot-card.featured:hover {
         transform: translateY(-10px);
+    }
+
+    .map-wrapper {
+        position: static;
     }
 }
 
