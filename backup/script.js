@@ -91,7 +91,7 @@ const observer = new IntersectionObserver((entries) => {
 }, observerOptions);
 
 // Observe elements for scroll animation
-document.querySelectorAll('.plot-card, .feature-box, .gallery-item, .contact-method-card').forEach(el => {
+document.querySelectorAll('.plot-card, .feature-box, .gallery-item').forEach(el => {
     el.style.opacity = '0';
     el.style.transform = 'translateY(30px)';
     el.style.transition = 'all 0.6s ease';
@@ -118,104 +118,21 @@ window.addEventListener('scroll', () => {
 });
 
 // ===========================
-// CONTACT FORM HANDLING
-// ===========================
-
-const contactForm = document.getElementById('contactForm');
-
-if (contactForm) {
-    contactForm.addEventListener('submit', function(e) {
-        e.preventDefault();
-        
-        // Get form data
-        const formData = {
-            name: document.getElementById('name').value,
-            email: document.getElementById('email').value,
-            plotSize: document.getElementById('plotSize').value,
-            message: document.getElementById('message').value
-        };
-        
-        // Create mailto link with form data
-        const subject = encodeURIComponent('Inquiry about Jaydi Green City Plot');
-        const body = encodeURIComponent(
-            `Name: ${formData.name}\n` +
-            `Email: ${formData.email}\n` +
-            `Interested Plot Size: ${formData.plotSize || 'Not specified'}\n\n` +
-            `Message:\n${formData.message}`
-        );
-        
-        const mailtoLink = `mailto:jaydiinfrarealtors@gmail.com?subject=${subject}&body=${body}`;
-        
-        // Open default email client
-        window.location.href = mailtoLink;
-        
-        // Show success message
-        alert('Opening your email client... If it doesn\'t open automatically, please email us at jaydiinfrarealtors@gmail.com');
-        
-        // Reset form
-        contactForm.reset();
-    });
-}
-
-// ===========================
 // PAGE LOAD ANIMATION
 // ===========================
 
 window.addEventListener('load', () => {
     document.body.style.opacity = '1';
-    console.log('Jaydi Green City website loaded successfully! 🏡');
-    console.log('Contact: jaydiinfrarealtors@gmail.com');
+    console.log('JD Green City website loaded successfully! 🏡');
 });
 
 // ===========================
-// EMAIL FLOAT BUTTON ANIMATION
+// PRINT VISITOR LOCATION INFO
 // ===========================
 
-const emailFloat = document.querySelector('.email-float');
-
-if (emailFloat) {
-    // Add click tracking
-    emailFloat.addEventListener('click', () => {
-        console.log('Email button clicked');
-    });
+// Get visitor's approximate location (requires HTTPS in production)
+if ("geolocation" in navigator) {
+    // This is just for demo - in production, you might use this
+    // to show distance from the plot or nearest landmark
+    console.log('Geolocation available');
 }
-
-// ===========================
-// FORM VALIDATION ENHANCEMENTS
-// ===========================
-
-// Add real-time validation feedback
-const formInputs = document.querySelectorAll('.contact-form input, .contact-form textarea, .contact-form select');
-
-formInputs.forEach(input => {
-    input.addEventListener('blur', function() {
-        if (this.hasAttribute('required') && !this.value.trim()) {
-            this.style.borderColor = '#EA4335';
-        } else if (this.type === 'email' && this.value && !isValidEmail(this.value)) {
-            this.style.borderColor = '#EA4335';
-        } else {
-            this.style.borderColor = '#4CAF50';
-        }
-    });
-    
-    input.addEventListener('focus', function() {
-        this.style.borderColor = '#1B5E20';
-    });
-});
-
-// Email validation helper
-function isValidEmail(email) {
-    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return re.test(email);
-}
-
-// ===========================
-// PRINT WEBSITE INFO
-// ===========================
-
-console.log('%cJaydi Green City', 'font-size: 24px; font-weight: bold; color: #1B5E20;');
-console.log('%cBy JAYDI INFRA REALTORS PVT LTD', 'font-size: 14px; color: #FFA726;');
-console.log('%cBuilding Dreams. Brick By Brick', 'font-size: 12px; font-style: italic; color: #666;');
-console.log('\n📧 Email: jaydiinfrarealtors@gmail.com');
-console.log('🌐 Website: www.jaydiinfra.com');
-console.log('📍 Location: K2, Yash Park City, Safedabad, Lucknow, UP 225003');
