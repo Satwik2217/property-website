@@ -8,10 +8,10 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Work+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Floating WhatsApp Button -->
+    <!-- Floating Email Button -->
     <a href="mailto:jaydiinfrarealtors@gmail.com" 
        class="email-float" 
        aria-label="Email us">
@@ -22,59 +22,82 @@
 
     <!-- Navigation -->
     <nav class="navbar">
-        <div class="container">
+        <div class="nav-container">
             <div class="nav-brand">
-                <img src="images/logo-removebg-preview.png" alt="JAYDI INFRA REALTORS Logo" class="company-logo">
-                <div class="brand-text">
-                    <h1>JAYDI INFRA REALTORS</h1>
-                    <p class="tagline">Building Dreams. Brick By Brick</p>
-                </div>
+                <span class="brand-jaydi">Jaydi</span>
+                <span class="brand-infra">Infra</span>
             </div>
             <ul class="nav-menu" id="navMenu">
-                <li><a href="#home" class="nav-link active">Home</a></li>
-                <li><a href="#about" class="nav-link">About Project</a></li>
-                <li><a href="#plots" class="nav-link">Plot Options</a></li>
-                <li><a href="#features" class="nav-link">Features</a></li>
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#projects" class="nav-link">Projects</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
                 <li><a href="#gallery" class="nav-link">Gallery</a></li>
-                <li><a href="#location" class="nav-link">Location</a></li>
-                <li><a href="#contact" class="nav-link">Contact</a></li>
             </ul>
-            <div class="nav-actions">
-                <a href="mailto:jaydiinfrarealtors@gmail.com" class="nav-email">
-                    <span class="email-icon-nav">📧</span>
-                    <span class="email-text">Email Us</span>
-                </a>
-                <div class="hamburger" id="hamburger">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
+            <a href="#contact" class="nav-enquire-btn">Enquire</a>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
             </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
     <section id="home" class="hero">
-        <div class="hero-overlay"></div>
-        <div class="hero-content">
-            <div class="hero-badge">🏆 RERA and Zilla Panchayat Approved Project</div>
-            <h1 class="hero-title">Jaydi Green City</h1>
-            <p class="hero-subtitle">Premium Residential Plots on Highway | Lakshvar Vajaha, Lucknow-Ayodhya Highway</p>
-            <p class="hero-description">Your Dream Home Starts Here - RERA and Zilla Panchayat Approved, Freehold Plots</p>
+        <div class="hero-container">
+            <h1 class="hero-title">
+                Invest in<br>
+                RERA-Approved<br>
+                <span class="hero-highlight">Premium Plots</span>
+            </h1>
+            <p class="hero-subtitle">
+                Strategically located gated communities designed for long-term value, security, and growth.
+            </p>
             <div class="hero-buttons">
-                <a href="#contact" class="btn btn-primary">📧 Contact Us Now</a>
-                <a href="#plots" class="btn btn-secondary">View Plot Options</a>
+                <a href="#contact" class="btn btn-primary">Book Site Visit</a>
+                <a href="#projects" class="btn btn-secondary">Download Brochure</a>
             </div>
-            <div class="hero-features">
-                <div class="hero-feature">✓ Highway Location</div>
-                <div class="hero-feature">✓ RERA and Zilla Panchayat Approved</div>
-                <div class="hero-feature">✓ Freehold Property</div>
+        </div>
+    </section>
+
+    <!-- Why Choose Section -->
+    <section id="about" class="why-choose">
+        <div class="container">
+            <div class="section-header">
+                <h2>Why Choose Jaydi Infra</h2>
+                <p class="section-subtitle">Partnering with a trusted developer like Jaydi Infra unlocks long-term benefits, superior planning, and enhanced investment value.</p>
+            </div>
+            
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon">📐</div>
+                    <h3>Optimal Space Utilization</h3>
+                    <p>Well-planned layouts that maximize usable space while maintaining openness and comfort.</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon">🚗</div>
+                    <h3>Dedicated Parking Space</h3>
+                    <p>Organized and secure parking provisions designed for convenience and safety.</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon">📈</div>
+                    <h3>Enhanced Property Value</h3>
+                    <p>Strategic locations and legal clarity ensure strong appreciation over time.</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon">🏘️</div>
+                    <h3>Trusted Development</h3>
+                    <p>Built with compliance, transparency, and future-ready infrastructure.</p>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- About Project Section -->
-    <section id="about" class="about-project">
+    <section id="projects" class="about-project">
         <div class="container">
             <div class="section-header">
                 <span class="section-label">About The Project</span>
@@ -142,22 +165,16 @@
                 </div>
                 
                 <div class="about-image-section">
-                    <div class="about-main-image">
-                        <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=800&h=600&fit=crop" alt="Jaydi Green City Project">
-                        <div class="image-badge">
-                            <span>📍 Lakshvar Vajaha, Lucknow-Ayodhya Highway</span>
-                        </div>
-                    </div>
-                    <div class="stats-box">
-                        <div class="stat">
+                    <div class="about-stats">
+                        <div class="stat-item">
                             <h3>Highway</h3>
                             <p>Prime Location</p>
                         </div>
-                        <div class="stat">
+                        <div class="stat-item">
                             <h3>RERA</h3>
                             <p>Approved</p>
                         </div>
-                        <div class="stat">
+                        <div class="stat-item">
                             <h3>Freehold</h3>
                             <p>Clear Title</p>
                         </div>
@@ -177,7 +194,6 @@
             </div>
             
             <div class="plots-grid">
-                <!-- Small Plot -->
                 <div class="plot-card">
                     <div class="plot-icon">🏡</div>
                     <h3>Small Plot</h3>
@@ -192,7 +208,6 @@
                     <a href="#contact" class="btn-plot">Enquire Now</a>
                 </div>
 
-                <!-- Medium Plot -->
                 <div class="plot-card featured">
                     <div class="popular-badge">Most Popular</div>
                     <div class="plot-icon">🏠</div>
@@ -208,7 +223,6 @@
                     <a href="#contact" class="btn-plot">Enquire Now</a>
                 </div>
 
-                <!-- Large Plot -->
                 <div class="plot-card">
                     <div class="plot-icon">🏘️</div>
                     <h3>Large Plot</h3>
@@ -438,18 +452,10 @@
                             <div class="contact-method-details">
                                 <h4>Email Us</h4>
                                 <p class="contact-method-value">jaydiinfrarealtors@gmail.com</p>
-                                <span class="contact-method-action">Send Email</span>
+                                <span class="contact-method-action">Email</span>
                             </div>
                         </a>
 
-                        <a href="https://www.jaydiinfra.com" target="_blank" class="contact-method-card">
-                            <div class="contact-method-icon">🌐</div>
-                            <div class="contact-method-details">
-                                <h4>Visit Website</h4>
-                                <p class="contact-method-value">www.jaydiinfra.com</p>
-                                <span class="contact-method-action">Open Website</span>
-                            </div>
-                        </a>
 
                         <div class="contact-method-card office-card">
                             <div class="contact-method-icon">🏢</div>
@@ -521,7 +527,6 @@
             <div class="footer-content">
                 <div class="footer-section">
                     <div class="footer-brand">
-                        <img src="images/logo-removebg-preview.png" alt="JAYDI INFRA REALTORS Logo" class="footer-logo">
                         <h3>JAYDI INFRA REALTORS PVT. LTD.</h3>
                     </div>
                     <p class="footer-tagline">"Building Dreams. Brick By Brick"</p>

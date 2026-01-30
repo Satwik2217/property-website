@@ -91,7 +91,7 @@ const observer = new IntersectionObserver((entries) => {
 }, observerOptions);
 
 // Observe elements for scroll animation
-document.querySelectorAll('.plot-card, .feature-box, .gallery-item, .contact-method-card').forEach(el => {
+document.querySelectorAll('.plot-card, .feature-box, .benefit-card, .gallery-item, .contact-method-card').forEach(el => {
     el.style.opacity = '0';
     el.style.transform = 'translateY(30px)';
     el.style.transition = 'all 0.6s ease';
@@ -108,10 +108,10 @@ const navbar = document.querySelector('.navbar');
 window.addEventListener('scroll', () => {
     const currentScroll = window.pageYOffset;
     
-    if (currentScroll > 100) {
-        navbar.style.boxShadow = '0 5px 30px rgba(0,0,0,0.15)';
+    if (currentScroll > 50) {
+        navbar.style.boxShadow = '0 2px 8px rgba(0,0,0,0.1)';
     } else {
-        navbar.style.boxShadow = '0 2px 20px rgba(0,0,0,0.1)';
+        navbar.style.boxShadow = '0 1px 3px rgba(0,0,0,0.08)';
     }
     
     lastScroll = currentScroll;
@@ -190,16 +190,16 @@ const formInputs = document.querySelectorAll('.contact-form input, .contact-form
 formInputs.forEach(input => {
     input.addEventListener('blur', function() {
         if (this.hasAttribute('required') && !this.value.trim()) {
-            this.style.borderColor = '#EA4335';
+            this.style.borderColor = '#EF4444';
         } else if (this.type === 'email' && this.value && !isValidEmail(this.value)) {
-            this.style.borderColor = '#EA4335';
+            this.style.borderColor = '#EF4444';
         } else {
-            this.style.borderColor = '#4CAF50';
+            this.style.borderColor = '#10B981';
         }
     });
     
     input.addEventListener('focus', function() {
-        this.style.borderColor = '#1B5E20';
+        this.style.borderColor = '#0D9488';
     });
 });
 
@@ -213,9 +213,9 @@ function isValidEmail(email) {
 // PRINT WEBSITE INFO
 // ===========================
 
-console.log('%cJaydi Green City', 'font-size: 24px; font-weight: bold; color: #1B5E20;');
-console.log('%cBy JAYDI INFRA REALTORS PVT LTD', 'font-size: 14px; color: #FFA726;');
-console.log('%cBuilding Dreams. Brick By Brick', 'font-size: 12px; font-style: italic; color: #666;');
+console.log('%cJaydi Green City', 'font-size: 24px; font-weight: bold; color: #0D9488;');
+console.log('%cBy JAYDI INFRA REALTORS PVT LTD', 'font-size: 14px; color: #10B981;');
+console.log('%cBuilding Dreams. Brick By Brick', 'font-size: 12px; font-style: italic; color: #6B7280;');
 console.log('\n📧 Email: jaydiinfrarealtors@gmail.com');
 console.log('🌐 Website: www.jaydiinfra.com');
 console.log('📍 Location: K2, Yash Park City, Safedabad, Lucknow, UP 225003');
