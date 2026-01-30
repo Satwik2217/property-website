@@ -111,10 +111,22 @@ a {
 
 .nav-brand {
     display: flex;
-    align-items: baseline;
+    align-items: center;
     gap: 0.25rem;
     font-size: 1.25rem;
     font-weight: 600;
+}
+
+.nav-logo {
+    height: 40px;      /* adjust as needed */
+    width: auto;
+    object-fit: contain;
+}
+
+.brand-text {
+    display: flex;
+    align-items: baseline;
+    gap: 0.25rem;
 }
 
 .brand-jaydi {
