@@ -118,9 +118,15 @@ a {
 }
 
 .nav-logo {
-    height: 40px;      /* adjust as needed */
+    height: 100px;      /* adjust as needed */
     width: auto;
     object-fit: contain;
+}
+
+.brand-realtors {
+    color: var(--text-gray);
+    font-weight: 500;
+    font-size: 0.9rem;   /* slightly smaller for hierarchy */
 }
 
 .brand-text {
